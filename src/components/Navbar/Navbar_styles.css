@@ -1,0 +1,205 @@
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 50px;
+}
+
+.brand-logo {}
+
+.brand-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.brand-link img {
+    width: 80px;
+    height: 80px;
+}
+
+.brand-name {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.nav-links {}
+
+.nav-links-ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-link-li {
+    list-style: none;
+    margin: 0 90px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid rgb(54, 79, 221);
+}
+
+.log-in-sign-up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-in-btn {
+    border: 1px solid rgb(54, 79, 221);
+    border-radius: 25px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.log-in-btn:hover {
+    background-color: black;
+    color: rgb(255, 196, 0);
+}
+
+.sign-up-btn {
+    border: 1px solid rgb(28, 60, 241);
+    background-color: rgb(54, 79, 221);
+    border-radius: 25px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    margin: 0 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.sign-up-btn:hover {
+    color: rgb(54, 79, 221);
+    background-color: white;
+}
+
+/* Mobile media */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    left: 5px;
+    top: 0;
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 7px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.mobile-nav-menu {
+    position: fixed;
+    top: 50px;
+    left: -200px;
+    width: 200px;
+    height: 100vh;
+    background-color: rgb(85, 108, 241);
+}
+
+.mobile-nav-slide-right {
+    animation-name: mobileNavSlideRight;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+.mobile-nav-slide-left {
+    animation-name: mobileNavSlideLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes mobileNavSlideLeft {
+    0% {
+        transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes mobileNavSlideRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(200px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .fas {
+        font-size: 2rem;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .Navbar {
+        display: none;
+    }
+
+    .nav-links-ul {
+        margin-top: 70px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link-li {
+        list-style: none;
+        margin: 50px 90px;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        color: white;
+    }
+}
