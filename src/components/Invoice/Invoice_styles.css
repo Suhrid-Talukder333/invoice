@@ -20,7 +20,8 @@
 
 
 .invoice-item-container:hover {
-    transform: scale(1.05);
+    background-color: rgb(156, 156, 156);
+    color: white;
 }
 
 .due {

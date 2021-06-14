@@ -1,19 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import InvoiceForm from "../../components/InvoiceForm/InvoiceForm";
 import InvoiceList from "../../components/InvoiceList/InvoiceList";
 import "./InvoicePage_styles.css";
 
+let id = 0;
+
 const InvoicePage = () => {
+  const [formClick, setFormClick] = useState(false);
+  const handleClick = () => {
+    setFormClick(!formClick);
+  };
   return (
     <>
       <section className="invoice-container">
         <div className="invoice-container-header">
           <h1>INVOICE</h1>
-          <span className="add-invoice-btn">New Invoice +</span>
+          <span className="add-invoice-btn" onClick={handleClick}>
+            + New Invoice
+          </span>
         </div>
         <div className="invoice-list-container">
           <InvoiceList />
         </div>
       </section>
+      {formClick ? (
+        <InvoiceForm
+          itemInfo={{
+            customer: "",
+            id: id++,
+            amount: "",
+            created: "",
+            due: "",
+            note: "",
+            status: "",
+            email: "",
+            item: [],
+          }}
+          handleClick={handleClick}
+        />
+      ) : null}
     </>
   );
 };

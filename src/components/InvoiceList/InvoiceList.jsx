@@ -44,7 +44,13 @@ const InvoiceList = () => {
           <span className="invoice-note invoice-item">Note</span>
           <span className="invoice-status invoice-item">Status</span>
         </li>
-        <Invoice invoiceListInfo={invoiceListInfo} />
+        {invoiceListInfo.map((item) => (
+          <Invoice
+            key={item.id}
+            invoiceListInfo={invoiceListInfo}
+            item={item}
+          />
+        ))}
       </ul>
     </>
   );
