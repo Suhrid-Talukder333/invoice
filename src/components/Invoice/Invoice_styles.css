@@ -1,0 +1,55 @@
+.invoice-item-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    list-style: none;
+    cursor: pointer;
+    transition: all .5s;
+    background-color: white;
+    box-shadow: 0 9px 15px -6px rgb(109, 108, 108);
+    /* border-bottom: 1px solid grey; */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: all .9s;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(88, 88, 88);
+}
+
+
+.invoice-item-container:hover {
+    transform: scale(1.05);
+}
+
+.due {
+    font-weight: bolder;
+    color: red;
+    border-radius: 25px;
+    background-color: rgb(222, 222, 222);
+}
+
+.paid {
+    font-weight: bolder;
+    color: green;
+    border-radius: 25px;
+    background-color: rgb(222, 222, 222);
+}
+
+.pending {
+    font-weight: bolder;
+    color: blue;
+    border-radius: 25px;
+    background-color: rgb(222, 222, 222);
+}
+
+.invoice-id {
+    color: black;
+    font-weight: bolder;
+}
+
+.invoice-amount {
+    color: black;
+    font-weight: bolder;
+}
