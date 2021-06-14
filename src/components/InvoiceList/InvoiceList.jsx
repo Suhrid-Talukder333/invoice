@@ -1,37 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Invoice from "../Invoice/Invoice";
 import "./InvoiceList_styles.css";
 
 const InvoiceList = () => {
-  const [invoiceListInfo, setInvoiceListInfo] = useState([
-    {
-      customer: "John",
-      id: 0,
-      amount: "$100",
-      created: "May 3, 2021",
-      due: "In 2 Days",
-      note: "Give him as soon as you can don't forget this",
-      status: "Due",
-    },
-    {
-      customer: "sally",
-      id: 1,
-      amount: "$1020",
-      created: "May 3, 2021",
-      due: "In 2 Days",
-      note: "Give him as soon as you can don't forget this",
-      status: "Paid",
-    },
-    {
-      customer: "shakib",
-      id: 2,
-      amount: "$10000",
-      created: "May 3, 2021",
-      due: "In 2 Days",
-      note: "Give him as soon as you can don't forget this",
-      status: "Pending",
-    },
-  ]);
+  const [invoiceListInfo, setInvoiceListInfo] = useState(
+    JSON.parse(localStorage.getItem("invoices-list"))
+  );
+  if (invoiceListInfo === undefined) {
+    setInvoiceListInfo([]);
+  }
+  window.addEventListener("storage", () => {
+    setInvoiceListInfo(JSON.parse(localStorage.getItem("invoices-list")));
+  });
+
   return (
     <>
       <ul className="invoice-list">
@@ -44,13 +25,9 @@ const InvoiceList = () => {
           <span className="invoice-note invoice-item">Note</span>
           <span className="invoice-status invoice-item">Status</span>
         </li>
-        {invoiceListInfo.map((item) => (
-          <Invoice
-            key={item.id}
-            invoiceListInfo={invoiceListInfo}
-            item={item}
-          />
-        ))}
+        {invoiceListInfo !== null
+          ? invoiceListInfo.map((item) => <Invoice key={item.id} item={item} />)
+          : null}
       </ul>
     </>
   );

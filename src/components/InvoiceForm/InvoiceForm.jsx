@@ -14,6 +14,15 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
     setFormInfo({ ...formInfo, [e.target.id]: e.target.value });
     console.log(e.target.id);
   };
+
+  const handleSave = () => {
+    let invoicesList = JSON.parse(localStorage.getItem("invoices-list"));
+    if (invoicesList !== undefined) {
+      invoicesList = invoicesList.filter((item) => item.id !== formInfo.id);
+    }
+    invoicesList = [...invoicesList, formInfo];
+    localStorage.setItem("invoices-list", JSON.stringify(invoicesList));
+  };
   return (
     <>
       <div className="overlay"></div>
@@ -34,13 +43,13 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
             type="email"
             required
             placeholder="example@example.com"
-            value={itemInfo.email}
+            value={formInfo.email}
           ></input>
         </div>
         <div className="name-container">
           <label className="name-label">Recipient Name</label>
           <input
-            value={itemInfo.customer}
+            value={formInfo.customer}
             onChange={handleChange}
             id="customer"
             className="inputs"
@@ -53,7 +62,7 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
           <div className="issue-date-container">
             <label className="issue-label">Issued on</label>
             <input
-              value={itemInfo.created}
+              value={formInfo.created}
               onChange={handleChange}
               id="created"
               className="inputs"
@@ -64,7 +73,7 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
           <div className="due-date-container">
             <label className="due-label">Due on</label>
             <input
-              value={itemInfo.due}
+              value={formInfo.due}
               onChange={handleChange}
               id="due"
               className="inputs"
@@ -88,7 +97,7 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
         <div className="add-note-container">
           <label className="add-note-label">Add Notes</label>
           <textarea
-            value={itemInfo.note}
+            value={formInfo.note}
             onChange={handleChange}
             id="note"
             className="add-note-input"
@@ -96,7 +105,9 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
           ></textarea>
         </div>
         <div className="form-actions">
-          <span className="save-btn">Save</span>
+          <span className="save-btn" onClick={handleSave}>
+            Save
+          </span>
           <span className="send-btn">Send</span>
         </div>
       </section>

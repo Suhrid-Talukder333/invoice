@@ -3,7 +3,14 @@ import InvoiceForm from "../../components/InvoiceForm/InvoiceForm";
 import InvoiceList from "../../components/InvoiceList/InvoiceList";
 import "./InvoicePage_styles.css";
 
-let id = 0;
+let id;
+if (localStorage.getItem("id")) {
+  id = localStorage.getItem("id");
+  console.log(id);
+} else {
+  id = 0;
+  localStorage.setItem("id", 0);
+}
 
 const InvoicePage = () => {
   const [formClick, setFormClick] = useState(false);
@@ -27,7 +34,7 @@ const InvoicePage = () => {
         <InvoiceForm
           itemInfo={{
             customer: "",
-            id: id++,
+            id: (id = id + 1),
             amount: "",
             created: "",
             due: "",
