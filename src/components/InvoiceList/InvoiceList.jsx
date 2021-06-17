@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Invoice from "../Invoice/Invoice";
 import "./InvoiceList_styles.css";
+import { connect } from "react-redux";
 
-const InvoiceList = () => {
-  const [invoiceListInfo, setInvoiceListInfo] = useState(
-    JSON.parse(localStorage.getItem("invoices-list"))
-  );
-  if (invoiceListInfo === undefined) {
-    setInvoiceListInfo([]);
-  }
-  window.addEventListener("storage", () => {
-    setInvoiceListInfo(JSON.parse(localStorage.getItem("invoices-list")));
-  });
-
+const InvoiceList = ({ state }) => {
+  console.log(state);
   return (
     <>
       <ul className="invoice-list">
@@ -25,12 +17,16 @@ const InvoiceList = () => {
           <span className="invoice-note invoice-item">Note</span>
           <span className="invoice-status invoice-item">Status</span>
         </li>
-        {invoiceListInfo !== null
-          ? invoiceListInfo.map((item) => <Invoice key={item.id} item={item} />)
+        {state !== null
+          ? state.map((item) => <Invoice key={item.id} item={item} />)
           : null}
       </ul>
     </>
   );
 };
 
-export default InvoiceList;
+const mapDispatchToProps = (state) => {
+  return { state };
+};
+
+export default connect(mapDispatchToProps, null)(InvoiceList);

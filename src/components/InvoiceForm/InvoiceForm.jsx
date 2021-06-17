@@ -1,27 +1,32 @@
 import React, { useState } from "react";
 import "./InvoiceForm_styles.css";
+import * as actions from "../../redux/invoice";
+import { connect } from "react-redux";
 
-const InvoiceForm = ({ itemInfo, handleClick }) => {
+const InvoiceForm = ({
+  state,
+  itemInfo,
+  handleClick,
+  handleSave,
+  handleEdit,
+}) => {
   let newForm;
   newForm = itemInfo.customer === "" ? true : false;
 
   const [formInfo, setFormInfo] = useState({
     ...itemInfo,
   });
-  console.log(formInfo);
 
   const handleChange = (e) => {
     setFormInfo({ ...formInfo, [e.target.id]: e.target.value });
-    console.log(e.target.id);
   };
 
-  const handleSave = () => {
-    let invoicesList = JSON.parse(localStorage.getItem("invoices-list"));
-    if (invoicesList !== undefined) {
-      invoicesList = invoicesList.filter((item) => item.id !== formInfo.id);
+  const handleClickSave = () => {
+    if (newForm) {
+      handleSave(formInfo);
+    } else {
+      handleEdit(formInfo);
     }
-    invoicesList = [...invoicesList, formInfo];
-    localStorage.setItem("invoices-list", JSON.stringify(invoicesList));
   };
   return (
     <>
@@ -105,7 +110,7 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
           ></textarea>
         </div>
         <div className="form-actions">
-          <span className="save-btn" onClick={handleSave}>
+          <span className="save-btn" onClick={handleClickSave}>
             Save
           </span>
           <span className="send-btn">Send</span>
@@ -115,4 +120,15 @@ const InvoiceForm = ({ itemInfo, handleClick }) => {
   );
 };
 
-export default InvoiceForm;
+const mapStateToProps = (state) => {
+  return { state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleSave: (item) => dispatch(actions.invoiceAdded(item)),
+    handleEdit: (item) => dispatch(actions.invoiceEdited(item)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InvoiceForm);
