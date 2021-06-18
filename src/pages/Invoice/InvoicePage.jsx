@@ -34,7 +34,7 @@ const InvoicePage = () => {
             note: "",
             status: "",
             email: "",
-            item: [],
+            items: [{ name: "spoon", qty: 3, price: 10 }],
           }}
           handleClick={handleClick}
         />

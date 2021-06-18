@@ -28,6 +28,14 @@ const InvoiceForm = ({
       handleEdit(formInfo);
     }
   };
+
+  const handleItemDataChange = (event) => {
+    let id = event.target.parentElement.parentElement.id;
+    let index = event.target.id;
+    formInfo.items[id][index] = event.target.value;
+    event.target.value = formInfo.items[id][index];
+    // setFormInfo({ ...formInfo, [e.target.id]:  });
+  };
   return (
     <>
       <div className="overlay"></div>
@@ -94,6 +102,46 @@ const InvoiceForm = ({
             <li className="item-price form-items">Price</li>
             <li className="item-total form-items">Total</li>
           </ul>
+          {formInfo.items.map((item, index) => (
+            <ul id={`${index}`} className="items-list-header" key={item.name}>
+              <li className="item-name form-items">
+                <input
+                  id="name"
+                  onChange={handleItemDataChange}
+                  type="text"
+                  className="item-input"
+                  value={item.name}
+                ></input>
+              </li>
+              <li className="item-quantity form-items">
+                <input
+                  id="qty"
+                  onChange={handleItemDataChange}
+                  type="text"
+                  className="item-input"
+                  value={item.qty}
+                ></input>
+              </li>
+              <li className="item-price form-items">
+                <input
+                  id="price"
+                  onChange={handleItemDataChange}
+                  type="text"
+                  className="item-input"
+                  value={item.price}
+                ></input>
+              </li>
+              <li className="item-total form-items">
+                <input
+                  id=""
+                  onChange={handleItemDataChange}
+                  type="text"
+                  className="item-input"
+                  value={item.qty * item.price}
+                ></input>
+              </li>
+            </ul>
+          ))}
         </div>
         <div className="add-item-total-container">
           <span className="add-item-btn">+ Add Item</span>

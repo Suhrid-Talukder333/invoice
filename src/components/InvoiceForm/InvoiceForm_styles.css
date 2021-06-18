@@ -111,6 +111,12 @@
     align-items: center;
 }
 
+.item-input {
+    width: 100px;
+    text-align: center;
+    height: fit-content;
+}
+
 .form-items {}
 
 .add-item-total-container {
