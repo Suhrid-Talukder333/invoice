@@ -30,9 +30,11 @@
     border: 3px solid grey;
 }
 
+.close-btn {
+    display: flex;
+}
+
 .fa-times {
-    position: relative;
-    bottom: 50px;
     font-size: 30px;
     cursor: pointer;
 }
@@ -99,8 +101,9 @@
 .due-label {}
 
 .items-container {
-    width: 80%;
+    width: 100%;
     margin: 10px 0;
+    overflow-y: scroll;
 }
 
 .items-list-header {
@@ -114,7 +117,8 @@
 .item-input {
     width: 100px;
     text-align: center;
-    height: fit-content;
+    height: max-content;
+    overflow-wrap: break-word;
 }
 
 .form-items {}
@@ -178,15 +182,92 @@
 
 .send-btn {
     cursor: pointer;
-    margin: 10px 0;
+    /* margin: 10px 0;
     padding: 10px 20px;
     color: white;
     border-radius: 13px;
-    background-color: rgb(92, 95, 241);
+    background-color: rgb(92, 95, 241); */
 }
 
+/* 
 .send-btn:hover {
     border: 1px solid black;
     background-color: white;
     color: rgb(92, 95, 241);
+} */
+
+/* mobile */
+@media screen and (max-width:800px) {
+
+    .invoice-form {
+        width: 90%;
+        height: 90%;
+    }
+
+    .close-btn {}
+
+    .fa-times {}
+
+    .invoice-form-header {}
+
+    .invoice-form-header {}
+
+    .invoice-form-id {}
+
+    .email-container {}
+
+    .email-label {}
+
+    .inputs {}
+
+    .name-container {}
+
+    .name-label {}
+
+    .dates-container {}
+
+    .issue-date-container {}
+
+    .issue-label {}
+
+    .due-date-container {}
+
+    .due-label {}
+
+    .items-container {
+        width: 90%;
+        margin: auto;
+        height: 500px;
+    }
+
+    .items-list-header {}
+
+    .item-input {
+        width: 70%;
+    }
+
+    .form-items {}
+
+    .add-item-total-container {}
+
+    .add-item-btn {}
+
+    .total {}
+
+    .add-note-container {}
+
+    .add-note-label {}
+
+    .add-note-input {}
+
+    .form-actions {}
+
+    .save-btn {}
+
+    .save-btn:hover {}
+
+    .send-btn {}
+
+    .send-btn:hover {}
+
 }

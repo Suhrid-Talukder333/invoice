@@ -38,5 +38,25 @@
 
 .invoice-list-container {
     width: 100%;
-    overflow: hidden;
+}
+
+@media screen and (max-width:800px) {
+    .invoice-container {
+        width: 100vw;
+        margin: auto;
+        height: 100vh;
+        justify-content: start;
+    }
+
+    .invoice-container-header {
+        width: 100%;
+    }
+
+    .add-invoice-btn {}
+
+    .add-invoice-btn:hover {}
+
+    .invoice-list-container {
+        width: 100%;
+    }
 }

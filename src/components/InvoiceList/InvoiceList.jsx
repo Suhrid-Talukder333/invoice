@@ -4,7 +4,20 @@ import "./InvoiceList_styles.css";
 import { connect } from "react-redux";
 
 const InvoiceList = ({ state }) => {
-  console.log(state);
+  if (state.length > 0) {
+    state.map((item) => {
+      if (item.status !== "Paid") {
+        let date2 = item.due;
+        let today = new Date().toISOString().slice(0, 10);
+        if (today > date2) {
+          item.status = "Due";
+        } else {
+          item.status = "Pending";
+        }
+      }
+      return item;
+    });
+  }
   return (
     <>
       <ul className="invoice-list">

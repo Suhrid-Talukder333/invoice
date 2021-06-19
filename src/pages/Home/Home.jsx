@@ -11,7 +11,7 @@ const Home = () => {
         <div className="hero-text">
           <h1 className="hero-header">Invoice, Easy and Free</h1>
           <h2 className="hero-description">Its simple, Its free.</h2>
-          <a href="#home" className="hero-btn">
+          <a href="/invoice" className="hero-btn">
             Start Using For Free
           </a>
         </div>

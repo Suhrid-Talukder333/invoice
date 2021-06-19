@@ -28,13 +28,13 @@ const InvoicePage = () => {
           itemInfo={{
             customer: "",
             id: ++Initial_id,
-            amount: "",
+            amount: 0,
             created: "",
             due: "",
             note: "",
             status: "",
             email: "",
-            items: [{ name: "spoon", qty: 3, price: 10 }],
+            items: [],
           }}
           handleClick={handleClick}
         />

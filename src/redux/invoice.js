@@ -16,7 +16,6 @@ export const invoiceEdited = (item) => ({
 //utility
 const editedInvoice = (state, payload) => {
   const data = state.filter((item) => item.id !== payload.id);
-  console.log(data);
   data.push(payload);
   return data;
 };

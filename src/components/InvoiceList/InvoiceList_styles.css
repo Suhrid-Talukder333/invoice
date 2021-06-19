@@ -21,4 +21,25 @@
 .invoice-item {
     width: 200px;
     padding: 10px 5px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+@media screen and (max-width:800px) {
+    .invoice-list {
+        width: 100%;
+    }
+
+    .invoice-header {
+        font-size: 11px;
+        width: 100%;
+        padding: 5px;
+    }
+
+
+    .invoice-item {
+        width: 100px;
+        padding: 3px;
+        font-size: 8px;
+    }
 }
