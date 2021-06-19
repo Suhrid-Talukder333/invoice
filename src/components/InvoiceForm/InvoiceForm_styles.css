@@ -121,7 +121,11 @@
     overflow-wrap: break-word;
 }
 
-.form-items {}
+.form-items {
+    width: 100px;
+    text-align: center;
+    font-size: 11px;
+}
 
 .add-item-total-container {
     display: flex;

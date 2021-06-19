@@ -42,8 +42,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="log-in-sign-up">
-          <span className="log-in-btn">Sign In</span>
-          <span className="sign-up-btn">Sign Up For Free</span>
+          {/* <span className="log-in-btn">Sign In</span> */}
+          <a className="sign-up-btn" href="/invoice">
+            Use For Free
+          </a>
         </div>
       </nav>
       <nav className="mobile-nav">

@@ -125,8 +125,8 @@ const InvoiceForm = ({
         <div className="items-container">
           <ul className="items-list-header">
             <li className="item-name form-items">Item</li>
-            <li className="item-quantity form-items">Qty</li>
-            <li className="item-price form-items">Price</li>
+            <li className="item-quantity form-items">Qty/Hours</li>
+            <li className="item-price form-items">Price per Hour/item</li>
             <li className="item-total form-items">Total</li>
           </ul>
           {formInfo.items.length > 0
