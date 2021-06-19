@@ -1,11 +1,13 @@
 <h1>INVOICE</h1>
-<div><img src="" /></div>
+<div><img src="https://media.giphy.com/media/aaT3xByFJnXiHtsBGz/giphy.gif" /></div>
 
 ## Info
 
 <p>A react app to create invoices and edit them. A test stripe payment added for testing payments</p>
 
 ## Live
+
+https://suhrid-invoice.netlify.app/
 
 ## Contributing
 
