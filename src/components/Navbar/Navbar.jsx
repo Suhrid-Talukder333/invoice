@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
 import "./Navbar_styles.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [hamburgerToggle, setHamburgerToggle] = useState("neutral");
@@ -17,35 +18,35 @@ const Navbar = () => {
     <>
       <nav className="Navbar">
         <div className="brand-logo">
-          <a href="#home" className="brand-link">
+          <Link href="#home" className="brand-link">
             <img src={logo} alt="brand img" />
             <p className="brand-name">Invoice</p>
-          </a>
+          </Link>
         </div>
         <div className="nav-links">
           <ul className="nav-links-ul">
             <li className="nav-link-li">
-              <a href="#home" className="nav-link">
+              <Link href="#home" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-link-li">
-              <a href="#home" className="nav-link">
+              <Link href="#home" className="nav-link">
                 Product
-              </a>
+              </Link>
             </li>
             <li className="nav-link-li">
-              <a href="#about" className="nav-link">
+              <Link href="#about" className="nav-link">
                 About
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="log-in-sign-up">
           {/* <span className="log-in-btn">Sign In</span> */}
-          <a className="sign-up-btn" href="/invoice">
+          <Link className="sign-up-btn" href="/invoice">
             Use For Free
-          </a>
+          </Link>
         </div>
       </nav>
       <nav className="mobile-nav">
@@ -71,22 +72,22 @@ const Navbar = () => {
         >
           <ul className="nav-links-ul">
             <li className="nav-link-li">
-              <a href="#home" className="nav-link">
+              <Link href="#home" className="nav-link">
                 <i className="fas fa-home"></i>
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-link-li">
-              <a href="#home" className="nav-link">
+              <Link href="#home" className="nav-link">
                 <i className="fas fa-box-open"></i>
                 Product
-              </a>
+              </Link>
             </li>
             <li className="nav-link-li">
-              <a href="#about" className="nav-link">
+              <Link href="#about" className="nav-link">
                 <i className="fas fa-address-card"></i>
                 About
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
