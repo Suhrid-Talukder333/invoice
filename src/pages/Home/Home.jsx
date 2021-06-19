@@ -12,7 +12,7 @@ const Home = () => {
         <div className="hero-text">
           <h1 className="hero-header">Invoice, Easy and Free</h1>
           <h2 className="hero-description">Its simple, Its free.</h2>
-          <Link href="/invoice" className="hero-btn">
+          <Link to="/invoice" className="hero-btn">
             Start Using For Free
           </Link>
         </div>
